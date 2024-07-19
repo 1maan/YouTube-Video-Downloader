@@ -136,13 +136,6 @@ input{
   width: 300px;
   background-color: #3a76aa05;
 }
-video{
-  margin-top: 10px;
-  max-width: 506px;
-  width: 100%;
-  background: black;
-  aspect-ratio: 16 / 9;
-}
 .loading{
   display: flex;
   justify-content: center;
