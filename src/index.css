@@ -1,0 +1,199 @@
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
+    Arial, sans-serif;
+}
+
+.input-group{
+  display: flex;
+  position: relative;
+  width: 100%;
+  gap: 10px;
+}
+.input-group #video-link{
+    max-width: 376px;
+    width: 100%;
+    padding: calc(.75rem - 1px) calc(.9rem - 1px);
+    -webkit-appearance: none;
+    font-size: 1rem;
+    line-height: 1.25rem;
+    outline: none;
+    border: 1px solid rgb(218,220,224);
+    border-radius: 5px;
+    transition: border-color .15s ease-out,color .15s ease-out;
+}
+#location{
+  margin-bottom: 10px;
+  max-width: 478px;
+  width: 100%;
+  padding: calc(.75rem - 1px) calc(.9rem - 1px);
+  -webkit-appearance: none;
+  font-size: 1rem;
+  line-height: 1.25rem;
+  outline: none;
+  border: 1px solid rgb(218,220,224);
+  border-radius: 5px;
+  transition: border-color .15s ease-out,color .15s ease-out;
+}
+
+.input-group label{
+    display: block;
+    padding: 0 .20rem;
+    position: absolute;
+    left: .4rem;
+    top: .9375rem;
+    font-size: 0.74rem;
+    font-weight: 400;
+    color: #757b80;
+    transition: transform .15s ease-out,color .15s ease-out;
+    pointer-events: none;
+    transform-origin: left center;
+    white-space: nowrap;
+    font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Apple Color Emoji", "Segoe UI", Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    top: -7px;
+    background-color: #ffffff;
+}
+.input-group .move-lable{
+    font-size: 1rem;
+    top: 10px;
+    left: 14px;
+    transition: font-size .15s ease-in-out,top .15s ease-in-out,left .15s ease-in-out;
+
+}
+
+#video-link:hover{
+  border: 1px solid #3390ec;
+}
+#video-link:hover ~ label{
+  transition: transform .15s ease-out,color .15s ease-out;
+  color: #3390ec;
+}
+
+#video-link:focus{
+  border: 2px solid #3390ec;
+}
+#video-link:focus ~ label{
+  transition: transform .15s ease-out,color .15s ease-out;
+  transition: font-size .15s ease-in-out,top .15s ease-in-out,left .15s ease-in-out;
+  color: #3390ec;
+  font-size: 0.74rem;
+  left: .4rem;
+  top: -7px;
+}
+#video-link:valid ~ label{
+  transition: transform .15s ease-out,color .15s ease-out;
+  transition: font-size .15s ease-in-out,top .15s ease-in-out,left .15s ease-in-out;
+  font-size: 0.74rem;
+  left: .4rem;
+  top: -7px;
+}
+#video-link:focus ~ .i{
+  transform: scaleY(-1);
+  transform: rotate(-90deg);
+  fill: #3390ec;
+}
+input{
+  caret-color: #338fec80;
+}
+.download{
+  width: 92px;
+  display: flex;
+  position: relative;
+  background-color: #3390ec;
+  border-radius: 5px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 15px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  overflow: hidden;
+  user-select: none;
+  font-weight: 600;
+  height: 43px;
+  border: none;
+  font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Apple Color Emoji", "Segoe UI", Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  color: #f2f2f2;
+  align-items: center;
+  justify-content: center;
+}
+.download:hover{
+  background-color: #4a95d6;
+}
+.download::after{
+  content: '';
+  left: 49%;
+  position: absolute;
+  aspect-ratio: 1/1;
+  background-color: #3a76aa8d;
+  border-radius: 50%;
+  top: 45%;
+  width: 0px;
+  z-index: 1;
+}
+.download.clicked:after{
+  transition: all 0.9s ease;
+  left: 10%;
+  top: -200%;
+  width: 300px;
+  background-color: #3a76aa05;
+}
+video{
+  margin-top: 10px;
+  max-width: 506px;
+  width: 100%;
+  background: black;
+  aspect-ratio: 16 / 9;
+}
+.loading{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.loadingcir{
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  border: 3px solid;
+  border-color: #ffffff #ffffff #ffffff transparent;
+  animation: loading 1s infinite  linear;
+}
+@keyframes loading {
+from {
+  transform: rotate(0deg);
+}
+to {
+  transform: rotate(360deg);
+}
+}
+
+
+#location:hover{
+  border: 1px solid #3390ec;
+}
+#location:hover ~ label{
+  transition: transform .15s ease-out,color .15s ease-out;
+  color: #3390ec;
+}
+
+#location:focus{
+  border: 2px solid #3390ec;
+}
+#location:focus ~ label{
+  transition: transform .15s ease-out,color .15s ease-out;
+  transition: font-size .15s ease-in-out,top .15s ease-in-out,left .15s ease-in-out;
+  color: #3390ec;
+  font-size: 0.74rem;
+  left: .4rem;
+  top: -7px;
+}
+#location:valid ~ label{
+  transition: transform .15s ease-out,color .15s ease-out;
+  transition: font-size .15s ease-in-out,top .15s ease-in-out,left .15s ease-in-out;
+  font-size: 0.74rem;
+  left: .4rem;
+  top: -7px;
+}
+#location:focus ~ .i{
+  transform: scaleY(-1);
+  transform: rotate(-90deg);
+  fill: #3390ec;
+}

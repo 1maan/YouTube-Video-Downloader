@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Youtube Video Downloader - Imaan</title>
+  <link rel="stylesheet" href="index.css" />
+</head>
+<body>
+  <div class="input-group">
+    <div class="input-group touched">
+      <input class="form-control phone_nb" type="text" id="location" autocomplete="off" required>
+      <label class="move-lable">Location</label>
+    </div>
+  </div>
+  <div class="input-group">
+    <div class="input-group touched">
+      <input class="form-control phone_nb" type="url" id="video-link" autocomplete="off" required>
+      <label class="move-lable">Video Link</label>
+      <button class="download" onclick="generateScript()">Download</button>
+    </div>
+  </div>
+<video id="vid" autoplay>
+</video>
+  <script>
+    const { exec } = require('child_process');
+ let dow = document.querySelector(".download")
+
+    function extractFirstLink(text) {
+    const urlRegex = /(https?:\/\/[^\s]+)/g;
+    const urls = text.match(urlRegex);
+    if (urls && urls.length >= 1) {
+        return urls[0];
+    } else {
+        return null; 
+    }
+}
+
+function convertPath(path) {
+    return path.replace(/\\/g, '/');
+}
+
+function generateScript(){
+  dow.innerHTML = `<div class="loading"><div class="loadingcir"></div></div>`
+let v_link = document.getElementById("video-link").value
+let location = document.getElementById("location").value
+
+const cmdCommand = `yt-dlp -g ${v_link}`;
+const cmdCommand2 = `yt-dlp -o "${convertPath(location)}/%(title)s.%(ext)s" ${v_link}`;
+
+exec(cmdCommand, (error, stdout, stderr) => {
+    if (error) {
+        console.error(`Error executing the CMD command: ${error}`);
+        return;
+    }
+console.log(stdout)
+const videoUrlsArray = extractFirstLink(stdout)
+console.log(videoUrlsArray);
+    document.getElementById("vid").src = videoUrlsArray
+    dow.innerHTML = `Downloading`
+    dow.style.backgroundColor = "red"
+
+  });
+
+exec(cmdCommand2, (error, stdout, stderr) => {
+    if (error) {
+        console.error(`Error executing the CMD command: ${error}`);
+        return;
+    }else{
+      dow.innerHTML = `Downloaded`
+      dow.style.backgroundColor = "#3390ec"
+    }
+});
+}
+
+
+
+
+  </script>
+
+</body>
+</html>
